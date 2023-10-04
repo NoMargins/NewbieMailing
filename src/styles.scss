@@ -1,0 +1,110 @@
+// .parent-root {
+//     display: block;
+//     margin: auto;
+//     max-width: 800px;
+   
+// }
+
+// .office-header {
+//     width: 800px;
+//     display: block;
+//     height: 32px;
+//     line-height: 32px;
+//     font-family: "Arial",sans-serif;
+//     font-weight: 700;
+//     text-transform: uppercase;
+//     border: 1px solid red;
+//     letter-spacing: 1px;
+//     margin: 10px 0;
+//     background-color: #ffffff;
+//     padding-left: 12px;
+    
+// }
+
+
+.parent-root {
+    width: 800px; // Встановлення ширини таблиці
+    border-collapse: collapse; // Видалення зайвих відступів між комірками
+    font-family: "Arial",sans-serif;
+}
+
+td {
+    font-size: 12.0pt;
+    background-color: #ffffff;
+    font-family: "Arial", sans-serif;
+    vertical-align: top; // Щоб вміст був вгорі комірки
+    padding: 10px; // Загальний відступ для всіх комірок, його можна змінити за потребою
+}
+
+.office-header {
+    // width: 800px; // Забезпечення того, що заголовки офісів завжди матимуть ширину 800px
+    text-align: left; // Додаткове вирівнювання тексту по центру
+    height: 32px;
+    line-height: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 1px solid red;
+    letter-spacing: 1px;
+    // margin: 10px 0;
+    background-color: #ffffff;
+    padding: 0;
+    padding-left: 12px;
+}
+
+.userphoto, .userinfo_text-block {
+    display: inline-block; // Забезпечення відображення поруч
+    vertical-align: top;
+}
+
+.userphoto {
+    width: 184px; // Вказано 185px, так як враховується відступ в 10px по обидва боки (загалом 205px)
+    padding: 8px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.userinfo_text-block {
+    width: 582px;
+    padding: 8px; // 600px - 10px (відступ зліва) - 5px (наприклад, якщо ви хочете додатковий відступ справа)
+
+    h3 {
+        font-weight: bold;
+        font-size: 12.0pt;
+        text-decoration: underline;
+        margin-bottom: 8px;
+
+        &:first-child {
+            text-decoration: none;
+            margin-top: 0px;
+        }
+    }
+
+    p {
+        font-size: 12.0pt;
+        text-align: left;
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+}
+
+.intro-container {
+    font-family: "Arial",sans-serif;
+    font-size: 12.0pt;
+
+    & img {
+        width: 800px;
+    }
+}
+
+tr {
+    padding: 0px;
+    margin: 10px 0;
+    height: 20px;
+}
+
+td {
+    padding: 0px;
+}

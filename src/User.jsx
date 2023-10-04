@@ -1,83 +1,44 @@
 import React from 'react';
+import convertName from './functions/convertName';
+import getSexWord from './functions/getSexWord';
+import toGenitive from './functions/toGenitive';
+import oldTextDepartment from './functions/oldTextDepatrment';
 import './user.scss';
 
 
-const User = (userdata) => {
-const {name, education, occupation, hobbies, photo, status, sex, department, subdepartment, position, exposition, exsubdepartment, exdepartment, exoffice} = userdata;
+const User = ({userdata}) => {
+const {name, education, occupation, hobbies, photo, status, sex, department, subdepartment, position, exposition, exsubDep, exdepartment, exoffice} = userdata;
 
-const newTextDepartment = () => {
-    const parts = [subdepartment, department].filter(part => part !== null);
-    return parts.join(' ');
-}
-
-const oldTextDepartment = () => {
-    const parts = [exsubdepartment, exdepartment, exoffice].filter(part => part !== null);
+const newTextDepartment = (subdepartment, department) => {
+    const parts = [subdepartment, department].filter(part => part !== null && part !== undefined);
     return parts.join(' ');
 }
 
 
-function toGenitive(originalStr) {
-    const unifiedOriginalStr = originalStr.toLowerCase();
-    const words = unifiedOriginalStr.split(' ');
-
-    for (let i = 0; i < words.length; i++) {
-        switch (words[i]) {
-            case "відділ":
-                words[i] = "відділу";
-                break;
-            case "департамент":
-                words[i] = "департаменту";
-                break;
-            case "менеджер":
-                    words[i] = "менеджера";
-                    break;
-            case "керівник":
-                words[i] = "керівника";
-                break;
-            case "фахівець":
-                    words[i] = "фахівця";
-                    break;
-            case "завідувач":
-                words[i] = "завідувача";
-                break;
-           case "керуючий":
-                    words[i] = "керуючого";
-                    break;
-         case "магазин":
-                words[i] = "магазину";
-                break;
-        }
-    }
-
-    return words.join(' ');
-}
-
-const sexWordNewbie = sex === "female" ? 'прийнята' : "прийнятий";
-const sexWordOlder = sex === "female" ? 'підвищена' : "підвищений";
-const serWordOlderEarlier = sex === "female" ? 'обіймала' : "обіймав";
-
-const textTitle = () => {
+const textTitle = (status, name, sex, position, subdepartment, department, exposition, exsubDep, exdepartment, exoffice, office ) => {
     if (status === 'newbie') {
-      return (`${name} ${sexWordNewbie} на посаду ${toGenitive(position)} ${toGenitive(newTextDepartment)}.`)
+      return (`${convertName(name)} ${getSexWord(sex, "newbie")} на посаду ${toGenitive(position)} ${toGenitive(newTextDepartment(subdepartment, department))}.`)
     } 
-    if (status === 'older') {
-        return (`${name} ${sexWordOlder} на посаду ${toGenitive(position)} ${toGenitive(newTextDepartment)}. Раніше колега ${serWordOlderEarlier} посаду ${toGenitive(exposition)} ${toGenitive(oldTextDepartment)}`)
+    if (status === 'promoted') {
+        return (`${convertName(name)} ${getSexWord(sex, "older")} до ${toGenitive(position)} ${toGenitive(newTextDepartment((subdepartment, department)))}. Раніше колега ${getSexWord(sex, "olderEarlier")} посаду ${toGenitive(exposition)} ${toGenitive(oldTextDepartment(exsubDep, exdepartment, exoffice, subdepartment, department, office))}.`)
     } 
 }
 
 return (
-    <li className='userinfo'>
-<img src={photo} alt={`${name}'s portrait`}/>
-        <div className='userinfo_text-block'>
-        <h3>{textTitle}</h3>
+    <React.Fragment>
+    <td className='userphoto'>
+        <img src={photo} alt={`${name}'s portrait`} />
+    </td>
+    <td className='userinfo_text-block'>
+        <h3>{textTitle(status, name, sex, position, subdepartment, department, exposition, exsubDep, exdepartment, exoffice)}</h3>
         <h3>Освіта</h3>
         <p>{education}</p>
         <h3>Кар'єра</h3>
         <p>{occupation}</p>
         <h3>Цікаві факти</h3>
         <p>{hobbies}</p>
-        </div>
-    </li>
+    </td>
+    </React.Fragment>
     )
 }
 

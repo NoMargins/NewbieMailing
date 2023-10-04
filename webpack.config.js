@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlInlineCssWebpackPlugin = require('html-inline-css-webpack-plugin').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
@@ -10,7 +11,7 @@ module.exports = (env, argv) => {
 		entry: './src/index.jsx',
 		output: {
 			filename: 'bundle.js',
-			path: path.resolve(__dirname, 'dist') // This line specifies the output directory
+			path: path.resolve(__dirname, 'build') // This line specifies the output directory
 		},
 		module: {
 			rules: [
@@ -49,6 +50,7 @@ module.exports = (env, argv) => {
 			new HtmlWebpackPlugin({
 				template: './src/index.html',
 			}),
+			new HtmlInlineCssWebpackPlugin()
 		],
 		devServer: {
 			historyApiFallback: true,
