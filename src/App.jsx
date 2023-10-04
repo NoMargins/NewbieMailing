@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
 import Intro from './Intro/Intro';
 import replaceQuotesWithUkrainian from './functions/replaceQuot';
-import { newbies } from './users/newbie';
+import { newbies } from './newbie';
 import User from './User';
 import './styles.scss';
 
@@ -13,7 +13,7 @@ const App = () => {
   const officePriority = [
     "Офіс комерційний",
     "Офіс операційний",
-    "Е-ком",
+    "Офіс Е-ком",
     "Офіс маркетингу",
     "Офіс фінансовий",
     "Офіс адміністративний",

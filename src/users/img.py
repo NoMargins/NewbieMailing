@@ -12,8 +12,9 @@ def download_image(url, filename):
 def resize_image(input_filename, output_filename):
     with Image.open(input_filename) as img:
         aspect_ratio = img.height / img.width
-        new_height = int(200 * aspect_ratio)
-        img = img.resize((200, new_height))
+        new_width = 600
+        new_height = int(new_width * aspect_ratio)
+        img = img.resize((new_width, new_height))
         img.save(output_filename)
 
 # Завантаження і обробка зображень

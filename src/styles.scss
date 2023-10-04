@@ -22,10 +22,13 @@
 // }
 
 
+
 .parent-root {
     width: 800px; // Встановлення ширини таблиці
     border-collapse: collapse; // Видалення зайвих відступів між комірками
     font-family: "Arial",sans-serif;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td {
