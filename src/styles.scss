@@ -1,27 +1,6 @@
-// .parent-root {
-//     display: block;
-//     margin: auto;
-//     max-width: 800px;
-   
-// }
-
-// .office-header {
-//     width: 800px;
-//     display: block;
-//     height: 32px;
-//     line-height: 32px;
-//     font-family: "Arial",sans-serif;
-//     font-weight: 700;
-//     text-transform: uppercase;
-//     border: 1px solid red;
-//     letter-spacing: 1px;
-//     margin: 10px 0;
-//     background-color: #ffffff;
-//     padding-left: 12px;
-    
-// }
-
-
+#root {
+    background-color: blue;
+}
 
 .parent-root {
     width: 800px; // Встановлення ширини таблиці
@@ -29,6 +8,11 @@
     font-family: "Arial",sans-serif;
     margin-left: auto;
     margin-right: auto;
+}
+
+.invisible-background {
+    background-color: transparent;
+    height: 16px;
 }
 
 td {
@@ -60,7 +44,7 @@ td {
 }
 
 .userphoto {
-    width: 184px; // Вказано 185px, так як враховується відступ в 10px по обидва боки (загалом 205px)
+    width: 200px; // Вказано 185px, так як враховується відступ в 10px по обидва боки (загалом 205px)
     padding: 8px;
     img {
         width: 100%;
@@ -70,7 +54,7 @@ td {
 }
 
 .userinfo_text-block {
-    width: 582px;
+    width: 568px;
     padding: 8px; // 600px - 10px (відступ зліва) - 5px (наприклад, якщо ви хочете додатковий відступ справа)
 
     h3 {
@@ -102,10 +86,15 @@ td {
     }
 }
 
+.text-container {
+    padding: 8px;
+}
+
 tr {
     padding: 0px;
     margin: 10px 0;
     height: 20px;
+    background-color: #ffffff;
 }
 
 td {

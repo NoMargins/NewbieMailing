@@ -1,17 +1,20 @@
+import os
 import win32com.client
 
-def create_msg(subject, body_html, output_file):
+def html_to_msg(subject, html_content, save_path):
     outlook = win32com.client.Dispatch("Outlook.Application")
     message = outlook.CreateItem(0)  # 0 - olMailItem
-    message.Subject = subject
-    message.HTMLBody = body_html
     
-    message.SaveAs(output_file)
+    message.Subject = subject
+    message.HTMLBody = html_content
+    
+    message.SaveAs(save_path)
+    print(f"Saved .msg file to {save_path}")
 
-# Завантаження HTML-змісту з файлу
-html_file_path = r"C:\Users\Admin\OneDrive\Desktop\NewAppointments\build\index.html"
-with open(html_file_path, 'r', encoding='utf-8') as file:
-    html_content = file.read()
+if name == "main":
+    with open("C:\\Users\\o.riabenko\\Desktop\\Нові призначення\\Вересень\\Ч2\\src\\index.html", 'r', encoding='utf-8') as f:
+        html_content = f.read()
 
-# Створення .msg файлу
-create_msg("Test Subject", html_content, "test_email.msg")
+    save_path = "C:\\Users\\o.riabenko\\Desktop\\Нові призначення\\Вересень\\Ч2\\output_message.msg"
+
+    html_to_msg("Test Subject", html_content, save_path)

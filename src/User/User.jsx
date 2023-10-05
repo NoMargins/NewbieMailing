@@ -1,8 +1,8 @@
 import React from 'react';
-import convertName from './functions/convertName';
-import getSexWord from './functions/getSexWord';
-import toGenitive from './functions/toGenitive';
-import oldTextDepartment from './functions/oldTextDepatrment';
+import convertName from '../functions/convertName';
+import getSexWord from '../functions/getSexWord';
+import toGenitive from '../functions/toGenitive';
+import oldTextDepartment from '../functions/oldTextDepatrment';
 import './user.scss';
 
 

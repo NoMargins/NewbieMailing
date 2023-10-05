@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo } from 'react';
 import Intro from './Intro/Intro';
+import Footer from './Footer/Footer';
 import replaceQuotesWithUkrainian from './functions/replaceQuot';
 import { newbies } from './newbie';
-import User from './User';
+import User from './User/User';
 import './styles.scss';
 
 const App = () => {
@@ -46,9 +47,12 @@ const App = () => {
     return (
       <table className='parent-root'>
         <tbody>
-          <tr>
-            <td colSpan={2}><Intro offices={officesList} /></td>
+          <tr className="images-container" >
+            <td colSpan='2' >
+                <img style={{maxWidth: '800px'}} src="https://drive.google.com/uc?export=view&id=1nHVFqOstuKrznWN8Jd6-FBgq4gcDnp3I" alt="First Image"/>
+            </td>
           </tr>
+        <Intro offices={officesList} />
           {sortedUsers.reduce((acc, user) => {
             if (!acc.find(u => u.office === user.office)) {
               acc.push({ office: user.office, type: 'office' });
@@ -59,21 +63,25 @@ const App = () => {
             if (item.type === 'office') {
               return (
                 <React.Fragment key={index}>
-                  <tr>    </tr>
+                  <tr className='invisible-background'></tr>
                   <tr>
                     <td className="office-header" colSpan="2">{item.office}</td>
                   </tr>
-                  <tr>    </tr>
+                  <tr className='invisible-background'></tr>
                 </React.Fragment>
               );
             } else {
               return (
+                <React.Fragment key={index}>
                 <tr key={index}>
                   <User userdata={item} />
                 </tr>
+                <tr className='invisible-background'></tr>
+                 </React.Fragment>
               );
             }
           })}
+        <Footer />
         </tbody>
       </table>
     );    
