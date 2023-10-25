@@ -7,7 +7,7 @@ import './user.scss';
 
 
 const User = ({userdata}) => {
-const {name, education, occupation, hobbies, photo, status, sex, department, subdepartment, position, exposition, exsubDep, exdepartment, exoffice} = userdata;
+const {name, education, career, hobbies, photo, status, sex, department, division, position, office, exPosition, exDivision, exDepartment, exOffice} = userdata;
 
 const newTextDepartment = (subdepartment, department) => {
     const parts = [subdepartment, department].filter(part => part !== null && part !== undefined);
@@ -15,12 +15,12 @@ const newTextDepartment = (subdepartment, department) => {
 }
 
 
-const textTitle = (status, name, sex, position, subdepartment, department, exposition, exsubDep, exdepartment, exoffice, office ) => {
+const textTitle = (status, name, sex, position, division, department, office, exDivision, exDepartment, exOffice, exPosition ) => {
     if (status === 'newbie') {
-      return (`${convertName(name)} ${getSexWord(sex, "newbie")} на посаду ${toGenitive(position)} ${toGenitive(newTextDepartment(subdepartment, department))}.`)
+      return (`${convertName(name)} ${getSexWord(sex, "newbie")} на посаду ${toGenitive(position)} ${toGenitive(newTextDepartment(division, department))}.`)
     } 
     if (status === 'promoted') {
-        return (`${convertName(name)} ${getSexWord(sex, "older")} до ${toGenitive(position)} ${toGenitive(newTextDepartment((subdepartment, department)))}. Раніше колега ${getSexWord(sex, "olderEarlier")} посаду ${toGenitive(exposition)} ${toGenitive(oldTextDepartment(exsubDep, exdepartment, exoffice, subdepartment, department, office))}.`)
+        return (`${convertName(name)} ${getSexWord(sex, "older")} до ${toGenitive(position)} ${toGenitive(newTextDepartment((division, department)))}. Раніше колега ${getSexWord(sex, "olderEarlier")} посаду ${toGenitive(exPosition)} ${toGenitive(oldTextDepartment(exDivision, exDepartment, exOffice, division, department, office))}.`)
     } 
 }
 
@@ -30,11 +30,11 @@ return (
         <img src={photo} alt={`${name}'s portrait`} />
     </td>
     <td className='userinfo_text-block'>
-        <h3>{textTitle(status, name, sex, position, subdepartment, department, exposition, exsubDep, exdepartment, exoffice)}</h3>
+        <h3>{textTitle(status, name, sex, position, division, department, office, exDivision, exDepartment, exOffice, exPosition)}</h3>
         <h3>Освіта</h3>
         <p>{education}</p>
         <h3>Кар'єра</h3>
-        <p>{occupation}</p>
+        <p>{career}</p>
         <h3>Цікаві факти</h3>
         <p>{hobbies}</p>
     </td>

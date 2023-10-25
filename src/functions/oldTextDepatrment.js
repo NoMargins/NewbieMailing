@@ -1,16 +1,16 @@
-const oldTextDepartment = (exsubdepartment, exdepartment, exoffice, subdepartment, department, office) => {
-    if (exsubdepartment === subdepartment && exdepartment === department) {
-        exsubdepartment = "цього самого відділу";
-        exdepartment = "";
-        exoffice = "";
+const oldTextDepartment = (exDivision, exDepartment, exOffice, division, department, office) => {
+    if (exDivision === division && exDepartment === department) {
+        exDivision = "цього самого відділу";
+        exDepartment = "";
+        exOffice = "";
     }
-    if (exdepartment === department) {
-        exdepartment = "цього самого департаменту";
+    if (exDivision != division && exDepartment === department) {
+        exDepartment = "цього самого департаменту";
     }
-    if (exoffice === office) {
-        exoffice = ""; 
+    if (exOffice === office) {
+        exOffice = ""; 
     }
-    const parts = [exsubdepartment, exdepartment, exoffice].filter(part => part !== null && part !== undefined);
+    const parts = [exDivision, exDepartment, exOffice].filter(part => part !== null && part !== undefined);
     return parts.join(' ');
 }
 

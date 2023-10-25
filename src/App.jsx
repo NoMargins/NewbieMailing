@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import Intro from './Intro/Intro';
 import Footer from './Footer/Footer';
 import replaceQuotesWithUkrainian from './functions/replaceQuot';
-import { newbies } from './newbie';
+import { newbies } from './users/newbies';
 import User from './User/User';
 import './styles.scss';
 

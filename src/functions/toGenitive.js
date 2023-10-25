@@ -20,6 +20,12 @@ export default function toGenitive(originalStr) {
             case "начальник": return "начальника";
             case "магазин": return "магазину";
             case "проектів": return "проєктів";
+            case "помічник": return "помічника";
+            case "команда": return "команди";
+            case "провідний": return "провідного";
+            case "продавець-консультант": return "продавця-консультанта";
+            case "бухгалтер": return "бухгалтера";
+
             default: return word;
         }
     }
