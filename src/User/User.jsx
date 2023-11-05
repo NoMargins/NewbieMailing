@@ -26,10 +26,14 @@ const textTitle = (status, name, sex, position, division, department, office, ex
 
 return (
     <React.Fragment>
-    <td className='userphoto'>
-        <img src={photo} alt={`${name}'s portrait`} />
-    </td>
+    {/* <td className='userphoto'>
+       
+    </td> */}
     <td className='userinfo_text-block'>
+        <div className='user-foto'>
+        <img src={photo} alt={`${name}'s portrait`} />
+        </div>
+        <div className='text-block'>
         <h3>{textTitle(status, name, sex, position, division, department, office, exDivision, exDepartment, exOffice, exPosition)}</h3>
         <h3>Освіта</h3>
         <p>{education}</p>
@@ -37,6 +41,7 @@ return (
         <p>{career}</p>
         <h3>Цікаві факти</h3>
         <p>{hobbies}</p>
+        </div>
     </td>
     </React.Fragment>
     )

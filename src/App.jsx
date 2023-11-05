@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import Intro from './Intro/Intro';
 import Footer from './Footer/Footer';
 import replaceQuotesWithUkrainian from './functions/replaceQuot';
-import { newbies } from './users/newbies';
+import { newbies } from './users/results/newbies';
 import User from './User/User';
 import './styles.scss';
 
@@ -47,8 +47,8 @@ const App = () => {
     return (
       <table className='parent-root'>
         <tbody>
-          <tr className="images-container" >
-            <td colSpan='2' >
+          <tr>
+            <td className="image-container">
                 <img style={{maxWidth: '800px'}} src="https://drive.google.com/uc?export=view&id=1nHVFqOstuKrznWN8Jd6-FBgq4gcDnp3I" alt="First Image"/>
             </td>
           </tr>
@@ -65,7 +65,7 @@ const App = () => {
                 <React.Fragment key={index}>
                   <tr className='invisible-background'></tr>
                   <tr>
-                    <td className="office-header" colSpan="2">{item.office}</td>
+                    <td className="office-header">{item.office}</td>
                   </tr>
                   <tr className='invisible-background'></tr>
                 </React.Fragment>

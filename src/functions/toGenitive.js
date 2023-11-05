@@ -25,6 +25,9 @@ export default function toGenitive(originalStr) {
             case "провідний": return "провідного";
             case "продавець-консультант": return "продавця-консультанта";
             case "бухгалтер": return "бухгалтера";
+            case "тестувальник": return "тестувальника";
+            case "розробник": return "розробника";
+            case "технолог": return "технолога";
 
             default: return word;
         }
