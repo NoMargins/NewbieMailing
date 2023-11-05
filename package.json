@@ -55,7 +55,7 @@
         "react-dnd-html5-backend": "^16.0.1",
         "react-dnd-touch-backend": "^16.0.1",
         "react-dom": "^18.2.0",
-        "react-snap": "^1.23.0",
+        "react-snap": "^1.13.1",
         "react-svg": "^16.1.24"
     }
 }
